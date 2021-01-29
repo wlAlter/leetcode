@@ -25,3 +25,4 @@ var moveZeroes = function (nums) {
 
 moveZeroes(nums);
 console.log(nums);
+// 这次format失败了. 因为错误放置了prev+=1
