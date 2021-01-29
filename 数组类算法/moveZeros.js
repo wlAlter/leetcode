@@ -8,21 +8,25 @@ var moveZeroes = function (nums) {
     next = 1;
   while (next < nums.length) {
     if (nums[prev] == 0) {
-      if (nums[next] != 0) {
+      if (nums[next] == 0) {
+        next++;
+      } else {
         nums[prev] = nums[next];
         nums[next] = 0;
+        prev += 1;
+        next++;
       }
     } else {
-      if (nums[next] != 0) {
-        prev += 1;
-        next += 1;
+      if (nums[next] == 0) {
+        prev++;
+        next++;
+      } else {
+        prev += 2;
+        next += 2;
       }
     }
-    prev += 1;
-    next += 1;
   }
 };
 
 moveZeroes(nums);
 console.log(nums);
-// 这次format失败了. 因为错误放置了prev+=1
