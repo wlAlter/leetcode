@@ -4,16 +4,20 @@
  * @return {number}
  */
 var removeElement = function (nums, val) {
+  let swapIndex = nums.length - 1;
   let index = 0;
-  while (index < nums.length) {
+  while (index <= swapIndex) {
     if (nums[index] == val) {
-      nums.splice(index, 1);
+      nums[index] = nums[swapIndex];
+      nums[swapIndex] = val;
+      swapIndex--;
     } else {
       index++;
     }
   }
-  return nums.length;
+  return swapIndex + 1;
 };
+// let nums = [1];
 let nums = [0, 1, 2, 2, 3, 0, 4, 2];
 
 console.log(removeElement(nums, 2));
